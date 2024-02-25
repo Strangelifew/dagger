@@ -1,9 +1,9 @@
 import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 
 plugins {
-    kotlin("jvm") version "1.8.10"
+    kotlin("jvm") version "1.9.22"
     application
-    kotlin("kapt") version "1.8.10"
+    kotlin("kapt") version "1.9.22"
 }
 
 group = "me.adp"
@@ -15,8 +15,9 @@ repositories {
 
 dependencies {
     testImplementation(kotlin("test"))
-    implementation("com.google.dagger:dagger:2.45")
-    kapt("com.google.dagger:dagger-compiler:2.45")
+    implementation("com.google.dagger:dagger:2.50")
+    kapt("com.google.dagger:dagger-compiler:2.50")
+    implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core:1.8.0")
 }
 
 tasks.test {
@@ -24,7 +25,7 @@ tasks.test {
 }
 
 tasks.withType<KotlinCompile> {
-    kotlinOptions.jvmTarget = "${JavaVersion.VERSION_11}"
+    kotlinOptions.jvmTarget = "${JavaVersion.VERSION_21}"
 }
 
 application {
